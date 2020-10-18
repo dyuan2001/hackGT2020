@@ -14,17 +14,9 @@ router.get('/write', ensureAuthenticated, (req,res) => {
 });
 
 router.get('/read/:letterID', ensureAuthenticated, (req,res) => {
-    let id = req.params.letterID;
-    console.log(id);
-    Message.findOne({_id: id}, (err, messageF) => {
-        console.log(messageF.text);
-        //messageJ = JSON.parse(messageF.text);
-        //console.log("good");
-
-        res.render('read', {
-            user: req.user,
-            message: messageF.text,
-        });
+    res.render('read', {
+        user: req.user,
+        id: req.params.letterID,
     });
 });
 
@@ -65,7 +57,7 @@ let checkForLetters = setInterval(() =>
 {
     //checks for messages in the database with
     //date < 1 min from Date.now()
-    let time = Date.now() - 60000;
+    let time = Date.now() - 5000;
     User.find({}).then(function(users) {
         var messageQueries = [];
       
@@ -98,7 +90,7 @@ let checkForLetters = setInterval(() =>
     
 
 }
-, 10000);
+, 5000);
 //, 60000);
 
 module.exports = router;

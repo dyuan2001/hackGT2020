@@ -31,12 +31,8 @@
 
             function iwillparse(){ 
                 console.log("hello!");
-                alert("you suck");
-                console.log(<%message%>);
-                //let stringToParse = <%= message %>;
-                //console.log("preparsed: " + stringToParse);
-                // set quill editor instance to Delta state.
-                //quill.setContents();
+                quill.setContents(JSON.parse({"ops":[{"insert":"Hello, friend! I hope you have a good day. Hang in there, quaratine is hitting all of us hard! "},{"attributes":{"bold":true},"insert":"#HackGT"},{"insert":"\n"}]}));
+                  
             };
             
         </script>
