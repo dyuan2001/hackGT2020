@@ -1,7 +1,66 @@
 <html>
-<h1>Welcome!</h1>
-<p>Create an account or login</p>
-<a href="/users/register">Register</a>
-<a href="/users/login"> Login</a>
-</html>
+    <head>
+        <style>
+            h1 {
+                position:relative;
+                top: 150px;
+                font-family: Whitman-RomanLF;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 132px;
+                line-height: 140.62%;
+                /* or 211px */
 
+                text-align: center;
+
+                /* Brown */
+                color: #3C2617;
+            } 
+            body{
+                overflow: hidden;
+                background-image: url("introBorder.png");
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            p{
+                text-align: center;
+                padding-top: 75px;
+                font-family: Lato;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 40px;
+                line-height: 120%;
+                color: #3C2617;
+            }
+            .links{
+                padding-top: 30px;
+                font-family: Lato;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 40px;
+                text-align: center;
+                padding-bottom: 40px;
+            }
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width:30%;
+            }
+            .bottom {
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>"You are killing it today!"</h1>
+        <p>Create an account or login</p>
+        <div class="links">
+                <a href="/users/register">Register</a>
+                <a href="/users/login"> Login</a>
+        </div>
+        <img src="logo.svg" alt="logo" class="center"/>
+
+    </body>
+</html>
