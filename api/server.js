@@ -46,14 +46,28 @@ app.use((req,res,next)=> {
 //Routes
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
+app.use('/letters', require('./routes/letters'));
+app.use('/inbox', require('./routes/inbox'));
 //app.use('/chat', require('./routes/chat'));
 app.get('/chat', function(req,res) {
     res.render('chat');
 });
 
 
+var usernames = {};
 
-//chat
+function check_key(v)
+{
+	var val = '';
+	
+	for(var key in usernames)
+    {
+		if(usernames[key] == v)
+		val = key;
+	}
+	return val;
+}
+
 io.sockets.on('connection', function(socket) {
     console.log('working');
     socket.on('username', function(username) {
