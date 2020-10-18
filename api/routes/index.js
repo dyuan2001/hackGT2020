@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const {ensureAuthenticated} = require("../config/auth.js")
-router.get('/', (req,res)=>{
+router.get('/', function(req,res)=>{
     res.render('welcome');
 })
 //register page

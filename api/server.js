@@ -42,6 +42,8 @@ app.use((req,res,next)=> {
    next();
 })
 
+const directory: string = path.join(__dirname, '/public');
+server.use('/public', express.static(directory));
    
 //Routes
 app.use('/',require('./routes/index'));
