@@ -1,45 +1,152 @@
+<html>
+  <head>
+      <style>
+          h1 {
+            position: absolute;
+            top: -20px;
+            width: 1336px;
+            height: 139px;
+            font-family: Whitman-RomanLF;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 120px;
+            line-height: 100%;
+            text-align: center;
+
+            color: #FFFFFF;
+           
+          } 
+          h2{
+            position: absolute;
+            top:140px;
+            width: 1216px;
+            padding-left: 90px;
+
+            font-family: Lato;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 60px;
+            line-height: 120%;
+            /* or 72px */
+            text-align: center;
+
+            color: #FFFFFF;
+
+          }
+          body{
+            overflow: hidden;
+          }
+          #rectangle{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index:-1;
+            width: 1400px;
+            height: 744px;
+            background: #FFB1B1;
+            border-radius: 55px;
+            
+          }
+          .center {
+            padding-top: 340px;
+            padding-right: 360px;
+            text-align: right;
+            font-family: Lato;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 140%;
+            color: #FFFFFF;
+
+          }
+          input{
+            width: 562px;
+            height: 50px;
+            background: #FFFFFF;
+            border: none;
+            border-radius: 30px;
+            padding-left:20px;
+            font-family: Lato;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 120%;
+           }
+           p{
+             text-align: center;
+           }
+           .button{
+              width: 200px;
+              height: 50px;
+              border-radius: 30px;
+              background-color: FFE39A;
+              border: none;
+              font-family: Lato;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 20px;
+              line-height: 120%;
+              
+           }
+          
+
+      </style>
+  </head>
+<body>
+  <img src="registerBorder.png" alt="flowers">
+ 
 <h1>Register</h1>
+<h2>Your email and name will be shared with your matches.</h2>
 <%- include ('./partials/messages') %>
 <form action="/users/register" method="POST">
-<div>
-    <label for="name">Name</label>
-    <input
-      type="name"
-      name="name"
-      placeholder="Enter Name"
-      value="<%= typeof name != 'undefined' ? name : '' %>"
-    />
-  
-</div>
-<div>
-    <label for="email">Email</label>
-    <input
-      type="email"
-      name="email"
-      placeholder="Enter Email"
-      value="<%= typeof email != 'undefined' ? email : '' %>"
-    />
+<div id="rectangle"></div>
+<div class="center">
+  <div>
+      <label for="name">Name:</label>
+      <input
+        type="name"
+        name="name"
+        placeholder="Enter Name"
+        value="<%= typeof name != 'undefined' ? name : '' %>"
+      />
+    
   </div>
-  <div >
-    <label for="password">Password</label>
-    <input
-      type="password"
-      name="password"
-      placeholder="Create Password"
-      value="<%= typeof password != 'undefined' ? password : '' %>"
-    />
+  <div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter Email"
+        value="<%= typeof email != 'undefined' ? email : '' %>"
+      />
+    </div>
+    <div >
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Create Password"
+        value="<%= typeof password != 'undefined' ? password : '' %>"
+      />
+    </div>
+    <div >
+      <label for="password2">Confirm Password:</label>
+      <input
+        type="password"
+        name="password2"
+        placeholder="Confirm Password"
+        value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+      />
+    </div>
+    <div style="text-align:right; padding-top: 10px;">
+    <button class="button" type="submit" class="btn btn-primary btn-block">
+      Register
+    </button>
   </div>
-  <div >
-    <label for="password2">Confirm Password</label>
-    <input
-      type="password"
-      name="password2"
-      placeholder="Confirm Password"
-      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-    />
+  </form>
+  <div style="padding-left:370px;">
+  <p >Have An Account? <a href="/users/login">Login</a></p>
   </div>
-  <button type="submit" class="btn btn-primary btn-block">
-    Register
-  </button>
-</form>
-<p >Have An Account? <a href="/users/login">Login</a></p>
+  </div>
+</body>
+</html>
