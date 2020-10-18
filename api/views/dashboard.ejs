@@ -1,5 +1,76 @@
-<h1>Dashboard</h1>
-<p> Welcome <%= user.name %></p>
-<a href="/users/logout">Logout</a>
-<a href="/letters/write">Letters</a>
-<a href="/inbox">Inbox</a>
+
+<html>
+  <head>
+    <style>
+      whitmanheader {
+        /* Login */
+      
+        width: 265px;
+        height: 144px;
+        
+        font-family: Whitman-RomanLF;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 120px;
+        line-height: 120%;
+        /* identical to box height, or 144px */
+
+        text-align:center; 
+
+        color: #FFB1B1;
+      }
+      body{
+          overflow:hidden;
+          background-image:url("rightMessage.png")
+          background-position:top;
+          background-repeat:no-repeat;
+          background-size: 100%;
+        }
+      textagain{
+          text-align: center;
+          padding-top: 75px;
+          font-family: Lato;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 40px;
+          line-height: 120%;
+          color: #3C2617;
+           
+        }
+
+      .links{
+          padding-top: 30px;
+          font-family: Lato;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 50px;
+          line-height: 120%;
+        /* or 72px */
+        }
+     .center {
+         display: block;
+         margin-top:300px;
+         margin-left: auto;
+         margin-right: auto;
+         width:30%;
+        }
+    
+    </style>
+    <!--<link rel="index" type = "text/css" href = "index.css" />-->
+  </head>
+  <body>
+    <whitmanheader>Dashboard:</whitmanheader>
+    
+    <textagain> Welcome, <%= user.name %>!</textagain>
+    <div class = "links">
+
+        <a href="/letters/write">Letters</a>
+        <hr>
+        <a href="/letters/inbox">Inbox</a>
+        <hr>
+        <a href="/chat">Chat</a>
+        <hr>
+        <a href="/users/logout">Logout</a>
+    </div>
+  </body>
+</html>

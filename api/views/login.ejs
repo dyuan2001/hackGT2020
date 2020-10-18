@@ -1,23 +1,87 @@
-<h1> Login </h1>
-<%- include ('./partials/messages') %>
-<form action="/users/login" method="POST">
-<div>
-<label for="email">Email</label>
-<input
-type="email"
-name="email"
-placeholder="Enter Email"
-/>
-</div>
-<div>
-    <label for="password">Password</label>
+<html>
+  <head>
+    <style>
+      whitmanheader {
+        /* Login */
+      
+        width: 265px;
+        height: 144px;
+        
+        font-family: Whitman-RomanLF;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 120px;
+        line-height: 120%;
+        /* identical to box height, or 144px */
+
+        color: #D6EAD5;
+      }
+      .links{
+          padding-top: 30px;
+          font-family: Lato;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 40px;
+          line-height: 120%;
+        /* or 72px */
+        }
+
+      subheaderfont{
+        position: absolute;
+        width: 162px;
+        height: 85px;
+
+        font-family: Lato;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 60px;
+        line-height: 120%;
+        /* or 72px */
+
+        color: #000000;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+      body{
+        overflow: hidden;
+        background-image: url("loginborder.png");
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 100%;
+            
+      }
+      
+    
+    </style>
+    <!--<link rel="index" type = "text/css" href = "index.css" />-->
+  </head>
+  <body>
+    <whitmanheader> Login </whitmanheader>
+    <%- include ('./partials/messages') %>
+    <form action="/users/login" method="POST">
+
+   <div>
+     <div class = "links"> 
+    <label for="email">Email:</label>
+     
     <input
-      type="password"
-      name="password"
-      placeholder="Enter Password"
+    type="email"
+    name="email"
+    placeholder="Enter Email"
     />
+    </div>
+    <div>
+      <div class = "links">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+       />
   
-</div>
-<button type="submit" class="btn btn-primary btn-block">Login</button>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
    
-</form>
+    </form>
+  </body>
+</html>

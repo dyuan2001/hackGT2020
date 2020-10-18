@@ -1,8 +1,5 @@
-  <body>
-    <% if(success_msg!= '') { %>
-        <p><%=success_msg %> </p>
-        <% } %>    
-  <h1> Write a letter!</h1>
+<body onload="iwillparse()">
+  <h1> A letter to <%= user.name%>: </h1>
     <!-- Include stylesheet -->
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
@@ -12,7 +9,6 @@
             <div id="editor" style="height: 50%;"></div>
             <input type="hidden" id="jsonform" name="text" value="">
             <!--<input type="hidden" id="username" name="user" value=user.name>-->
-            <button class="btn btn-primary" onclick="submitform()">Submit your letter!</button>
         </form>
 
         <!-- Include the Quill library -->
@@ -27,19 +23,20 @@
                     ['bold', 'italic', 'underline'],
                     ]
                 },
+                readOnly: false,
                 placeholder: 'Begin writing here!',
                 theme: 'snow'
             });
-            
-            
 
-            let submitform = function() {
-            // Populate hidden form on submit
-    
-                console.log("Submitted");
-                
-                document.getElementById("jsonform").value = JSON.stringify(quill.getContents());
-                document.getElementById("identifier").submit();
+
+            function iwillparse(){ 
+                console.log("hello!");
+                alert("you suck");
+                console.log(<%message%>);
+                //let stringToParse = <%= message %>;
+                //console.log("preparsed: " + stringToParse);
+                // set quill editor instance to Delta state.
+                //quill.setContents();
             };
             
         </script>

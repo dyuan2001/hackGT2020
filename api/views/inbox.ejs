@@ -1,1 +1,8 @@
-<h1>Inbox</h1>
+ <h1>Inbox</h1>
+ <p>Welcome to your inbox, <%= user.name %>!</p>
+ <ul>
+    <%  user.inbox.forEach(function(letter){ %>
+    <% var d = new Date(letter.date); %>
+    <li><a href="/letters/read/<%= letter._id %>" >A letter from a friend, dated <%= d.toString(); %>.</a></li>
+    <%   })   %>
+ </ul>

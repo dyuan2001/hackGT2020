@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {Message} = require('./message').schema;
 const UserSchema  = new mongoose.Schema({
   name :{
       type  : String,
@@ -15,6 +16,9 @@ const UserSchema  = new mongoose.Schema({
     date :{
         type : Date,
         default : Date.now
+    },
+    inbox: {
+        type: [Message],
     }
 });
 const User = mongoose.model('User',UserSchema);

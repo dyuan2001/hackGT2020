@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const app = express();
 const mongoose = require('mongoose');
+//mongoose.Promise = require('bluebird');
 const expressEjsLayout = require('express-ejs-layouts')
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://dyuan2001:OzZb82ILndheENzV@cluster0.lt7pk.mongodb.net/encourage?retryWrites=true&w=majority";
@@ -10,6 +11,9 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const http = require('http').Server(app);
 require("./config/passport")(passport)
+
+const User = require('./models/user.js');
+const Message = require('./models/message.js');
 
 const server = http.listen(4000);
 const io = require('socket.io').listen(server);
@@ -47,7 +51,7 @@ app.use((req,res,next)=> {
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
 app.use('/letters', require('./routes/letters'));
-app.use('/inbox', require('./routes/inbox'));
+//app.use('/inbox', require('./routes/letters/inbox'));
 //app.use('/chat', require('./routes/chat'));
 app.get('/chat', function(req,res) {
     res.render('chat');
@@ -67,13 +71,13 @@ function check_key(v)
 	}
 	return val;
 }
-
+//chat
 io.sockets.on('connection', function(socket) {
     console.log('working');
     socket.on('username', function(username) {
         console.log('username working');
         socket.username = username;
-        io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
+        io.emit('is_online', '🔵 <i>' + socket.username + ' joined the chat..</i>');
     });
 
     socket.on('disconnect', function(username) {
@@ -91,8 +95,37 @@ io.sockets.on('connection', function(socket) {
 process.on( 'SIGINT', function() {
     console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
     // some other closing procedures go here
-    process.exit( );
-  })
+    process.exit();
+  });
+/*
+let checkForLetters = setInterval(() =>
+{
+    //checks for messages in the database with
+    //date < 1 min from Date.now()
+    let time = Date.now() - 60000;
+    User.find({}).then(function(users) {
+        
+        
+        var messageQueries = [];
+      
+        users.forEach(function(u) {
+            messageQueries.push(Message.find({ user: { $ne: u }, date: {$gte: time} }));
+        });
+      
+        return Promise.all(messageQueries);
+      }).then(function(listOfMessages) {
+          res.send(listOfMessages);
+      }).catch(function(error) {
+          res.status(500).send('one of the queries failed', error);
+      });
+    
+
+}
+, 60000);
+*/
+
+
+
 
 
 /*async function listDatabases(client){
